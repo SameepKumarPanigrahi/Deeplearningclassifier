@@ -20,7 +20,7 @@ class DataIngestion:
             )
             logging.info(f"File : {filename} downloaded successfuly and the header is {header}")
         else:
-            logging.info(f"File already exist of size {get_size(Path(self.config.local))}")
+            logging.info(f"File already exist of size {get_size(Path(self.config.local_data_file))}")
             
     def _get_updated_list_of_file(self, list_of_file):
         return [f for f in list_of_file if f.endswith(".jpg") and ("Cat" in f or "Dog" in f)]
