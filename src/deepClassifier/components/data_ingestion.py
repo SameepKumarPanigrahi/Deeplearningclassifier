@@ -4,6 +4,7 @@ from zipfile import ZipFile
 from deepClassifier.entity import DataIngestionConfig
 from deepClassifier import logging
 from deepClassifier.utils import *
+from tqdm import tqdm
 
 class DataIngestion:
     def __init__(self, config:DataIngestionConfig):
@@ -39,5 +40,5 @@ class DataIngestion:
             list_of_files = zf.namelist()
             updated_list_of_file = self._get_updated_list_of_file(list_of_files)
             print(len(updated_list_of_file))
-            for f in updated_list_of_file:
+            for f in tqdm(updated_list_of_file):
                 self._preprocess(zf, f, self.config.unzip_dir)
