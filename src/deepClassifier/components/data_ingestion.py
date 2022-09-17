@@ -39,6 +39,5 @@ class DataIngestion:
         with ZipFile(file=self.config.local_data_file, mode="r") as zf:
             list_of_files = zf.namelist()
             updated_list_of_file = self._get_updated_list_of_file(list_of_files)
-            print(len(updated_list_of_file))
             for f in tqdm(updated_list_of_file):
                 self._preprocess(zf, f, self.config.unzip_dir)
