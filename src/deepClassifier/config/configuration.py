@@ -74,6 +74,6 @@ class ConfigurationManager:
             params_epochs=params.EPOCHS,
             params_batch_size=params.BATCH_SIZE,
             params_is_augmentation=params.AUGMENTATION,
-            params_image_size=params.IMAGE_SIZE
+            params_image_size=params.IMAGE_SIZE,
         )
         return training_config
