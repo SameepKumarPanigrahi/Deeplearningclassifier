@@ -20,3 +20,4 @@ prepare_callbacks:
 training:
   root_dir: artifacts/training
   trained_model_path: artifacts/training/model.h5
+  mlflow_uri: "https://dagshub.com/SameepKumarPanigrahi/Deeplearningclassifier.mlflow"

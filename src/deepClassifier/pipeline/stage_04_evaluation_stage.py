@@ -11,6 +11,7 @@ def main():
     evaluation = Evaluation(config=validation_config)
     evaluation.evaluation()
     evaluation.save_score()
+    evaluation.log_into_mlflow()
 
 
 if __name__ == "__main__":

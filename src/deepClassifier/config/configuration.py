@@ -83,6 +83,8 @@ class ConfigurationManager:
         eval_config = EvaluationConfig(
             path_of_model=self.config.training.trained_model_path,
             training_data=Path(os.path.join(self.config.data_ingestion.unzip_dir, "PetImages")),
+            all_params=self.params,
+            mlflow_uri=self.config.training.mlflow_uri,
             params_image_size=self.params.IMAGE_SIZE,
             params_batch_size=self.params.BATCH_SIZE
         )
