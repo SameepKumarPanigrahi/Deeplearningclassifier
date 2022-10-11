@@ -4,6 +4,7 @@ from deepClassifier.entity.config_entity import EvaluationConfig
 from deepClassifier.utils.common import *
 import mlflow
 import mlflow.keras
+from deepClassifier import logging
 from urllib.parse import urlparse
 
 class Evaluation:
@@ -36,17 +37,20 @@ class Evaluation:
     def evaluation(self):
         model = self.load_model(self.config.path_of_model)
         self._valid_generator()
+        logging.info("Start evaluation of the model by passing testing data")
         self.score = model.evaluate(self.valid_generator)
         
     def save_score(self):
         scores = {"loss": self.score, "accuracy": self.score[1]}
         save_json(path= Path("scores.json"), data=scores)
+        logging.info("Evaluation Scores saved to a file named scores.json successfully")
         
     def log_into_mlflow(self):
         mlflow.set_registry_uri(self.config.mlflow_uri)
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
         with mlflow.start_run():
             #Log all he parameters present in the 
+            logging.info("Log all he parameters present in the params.yaml File")
             mlflow.log_params(self.config.all_params)
             mlflow.log_metrics(
                 {"loss": self.score[0], "accuracy": self.score[1]}
@@ -58,6 +62,7 @@ class Evaluation:
                 # There are other ways to use the Model Registry, which depends on the use case,
                 # please refer to the doc for more information:
                 # https://mlflow.org/docs/latest/model-registry.html#api-workflow
+                logging.info("Push the model to the Mlflow")
                 mlflow.keras.log_model(self.model, "model", registered_model_name="VGG16Model")
             else:
                 mlflow.keras.log_model(self.model, "model")
