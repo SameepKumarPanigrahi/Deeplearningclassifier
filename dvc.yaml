@@ -51,3 +51,12 @@ stages:
     metrics:
     - scores.json:
         cache: false
+
+  modelselection:
+    cmd: python src/deepClassifier/pipeline/stg_05_bestmodel_selector.py
+    deps:
+      - src/deepClassifier/pipeline/stg_05_bestmodel_selector.py
+      - configs/config.yaml
+      - artifacts/data_ingestion/PetImages
+      - artifacts/training/model.h5
+      - prediction_service/model.h5
