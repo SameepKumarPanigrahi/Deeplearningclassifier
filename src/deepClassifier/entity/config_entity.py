@@ -44,3 +44,12 @@ class EvaluationConfig:
     mlflow_uri: str
     params_image_size: list
     params_batch_size: int
+    
+@dataclass(frozen=True)
+class BestModelSelectorConfig:
+    existing_model_path: Path
+    trained_model_path: Path
+    score_file_path: Path
+    training_data: Path
+    params_image_size: list
+    params_batch_size: int

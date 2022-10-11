@@ -6,6 +6,7 @@ from deepClassifier.entity.config_entity import (
     PrepareCallbacksConfig,
     TrainingConfig,
     EvaluationConfig,
+    BestModelSelectorConfig,
 )
 import os
 
@@ -89,3 +90,14 @@ class ConfigurationManager:
             params_batch_size=self.params.BATCH_SIZE
         )
         return eval_config
+    
+    def get_best_model_config(self)->BestModelSelectorConfig:
+        best_model_selector = BestModelSelectorConfig(
+            existing_model_path=self.config.model_selector.existing_model_path,
+            trained_model_path=self.config.model_selector.trained_model_path,
+            score_file_path=Path(self.config.model_selector.score_file_path),
+            training_data=Path(os.path.join(self.config.data_ingestion.unzip_dir, "PetImages")),
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE
+        )
+        return best_model_selector   

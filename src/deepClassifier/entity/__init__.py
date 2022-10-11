@@ -2,5 +2,7 @@ from deepClassifier.entity.config_entity import (
     PrepareBaseModelConfig,
     DataIngestionConfig,
     PrepareCallbacksConfig,
-    TrainingConfig
+    TrainingConfig,
+    EvaluationConfig,
+    BestModelSelectorConfig
 )
