@@ -24,11 +24,10 @@ class PrepareBaseModel:
     ):
         logging.info("Freeze all the layer weights of the VGG16")
         if freeze_all:
-            for layer in model.layers:
-                model.trainable = False
+            model.trainable = False
         elif (freeze_till is not None) and (freeze_till > 0):
             for layer in model.layers[:-freeze_till]:
-                model.trainable = False
+                layer.trainable = False
         logging.info("Add the Flatten layer")
         flatten_in = tf.keras.layers.Flatten()(model.output)
         logging.info("Add the Dense layer with activation function softmax")
