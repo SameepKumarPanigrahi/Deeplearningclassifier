@@ -3,7 +3,8 @@ import urllib.request as request
 from zipfile import ZipFile
 from deepClassifier.entity import DataIngestionConfig
 from deepClassifier import logging
-from deepClassifier.utils import *
+from deepClassifier.utils import get_size
+from pathlib import Path
 from tqdm import tqdm
 
 

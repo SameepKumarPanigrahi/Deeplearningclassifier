@@ -3,7 +3,7 @@ import shutil
 from pathlib import Path
 from deepClassifier.config.configuration import BestModelSelectorConfig
 from box import ConfigBox
-from deepClassifier.utils.common import *
+from deepClassifier.utils.common import load_json
 import os
 from deepClassifier import logging
 
