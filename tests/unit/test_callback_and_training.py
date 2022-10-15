@@ -50,7 +50,7 @@ class Test_Train_method_train:
         trained_model_path="tests/data/training/model.h5",
         updated_base_model_path="tests/data/prepare_base_model/base_model_updated.h5",
         training_data="tests/data/PetImages",
-        params_epochs=2,
+        params_epochs=5,
         params_batch_size=1,
         params_is_augmentation=True,
         params_image_size=[224, 224, 3]
