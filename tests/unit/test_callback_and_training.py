@@ -37,6 +37,7 @@ class Test_Train_valid_generator:
     
     def test_train_valid_generator(self):
         training = Training(config=self.training_config)
+        training.get_base_model()
         training.train_valid_generator()
         assert isinstance(training.valid_generator, tf.keras.preprocessing.image.DirectoryIterator)
         assert isinstance(training.train_generator, tf.keras.preprocessing.image.DirectoryIterator)

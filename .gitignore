@@ -143,3 +143,6 @@ artifacts/prepare_callbacks/tensorboard_log_dir/tb_logs_at_2022-09-24-17-16-41/t
 artifacts/prepare_callbacks/tensorboard_log_dir/tb_logs_at_2022-09-24-17-16-41/validation/events.out.tfevents.1664023826.DESKTOP-STKEB7J.18244.1.v2
 prediction_service/model.h5
 artifacts/prepare_callbacks/tensorboard_log_dir/tb_logs_at_2022-10-11-22-15-27/train/events.out.tfevents.1665506736.DESKTOP-STKEB7J.72088.0.v2
+tests/data/prepare_callbacks/
+tests/data/training/
+tests/data/prepare_base_model/
